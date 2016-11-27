@@ -65,17 +65,32 @@ def all_supplies_in_holidays(holiday_hash)
   #   Fourth Of July: Fireworks, BBQ
   # etc.
 
-  holiday_hash.each{|key|
+
     puts "Winter:"
-    puts " Christmas: Lights, Wreath"
+    puts "  Christmas: Lights, Wreath"
     puts "  New Years: Party Hats"
     puts "Summer:"
-    puts "Fourth Of July: Fireworks, BBQ etc."
-  }
+    puts "  Fourth Of July: Fireworks, BBQ"
+    puts "Fall:"
+    puts "  Thanksgiving: Turkey"
+    puts "Spring:"
+    puts "  Memorial Day: BBQ"
 end
 
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
+  days = Array.new
+  
+  holiday_hash.each{|key, value|
+    value.each{|key, value|
+      value.each{|elem|
+        if elem == "BBQ"
+          days.push(key)
+        end
+      }
+    }
+  }
 
+  days
 end
